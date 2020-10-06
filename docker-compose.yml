@@ -1,0 +1,19 @@
+version: '3.7'
+services:
+  front:
+    container_name: front
+    build: ./front
+    restart: always
+    environment:
+      - HOST=0.0.0.0
+    ports:
+      - 5002:3000
+
+  # nginx:
+  #   image: nginx:1.19
+  #   ports:
+  #     - "80:80"
+  #   volumes:
+  #     - ./nginx:/etc/nginx/conf.d
+  #   depends_on:
+  #     - nuxt

@@ -1,8 +1,6 @@
 <template>
   <div class="container">
-    <div>
-      Nuxt.js boilerplate
-    </div>
+    <div>Nuxt.js boilerplate</div>
   </div>
 </template>
 
