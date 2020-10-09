@@ -1,0 +1,12 @@
+{
+  "loopback-component-explorer": {
+    "mountPath": "/explorer"
+  },
+  "./components/content-range": {
+    "pattern": [
+      "*.find"
+    ],
+    "relatedModels": true,
+    "defaultLimit": 10
+  }
+}

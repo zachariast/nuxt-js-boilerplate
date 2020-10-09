@@ -1,0 +1,54 @@
+{
+  "name": "Question",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "Search": true
+  },
+  "properties": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "answers": {
+      "type": "array",
+      "default": [
+        {
+          "title": "Yes",
+          "points": null,
+          "triggerExtraQuestions": false
+        },
+        {
+          "title": "I am not sure",
+          "points": null,
+          "triggerExtraQuestions": false
+        },
+        {
+          "title": "No",
+          "points": null,
+          "triggerExtraQuestions": false
+        }
+      ]
+    }
+  },
+  "validations": [],
+  "relations": {
+    "extraQuestions": {
+      "type": "hasMany",
+      "model": "Question",
+      "foreignKey": ""
+    },
+    "topics": {
+      "type": "referencesMany",
+      "model": "Topic"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

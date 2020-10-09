@@ -1,0 +1,48 @@
+version: '3.7'
+services:
+  front:
+    container_name: front
+    image: node:10.15.1
+    volumes:
+      - ./front:/usr/src/app
+      - /usr/src/app/node_modules
+    working_dir: /usr/src/app
+    tty: true
+    command: bash -c "npm install -g yarn && yarn install && yarn dev"
+    environment:
+      - HOST=0.0.0.0
+    ports:
+      - 5002:3000
+  api:
+    container_name: api
+    image: node:10.15.1
+    volumes:
+      - ./api:/usr/src/api
+      - /usr/src/api/node_modules
+    working_dir: /usr/src/api
+    command: bash -c "npm install -g yarn && yarn install && yarn dev"
+    ports:
+      - 5000:3000
+    depends_on:
+      - 'mongo'
+  admin:
+    container_name: admin
+    image: node:10.15.1
+    volumes:
+      - ./admin:/usr/src/admin
+      - /usr/src/admin/node_modules
+    working_dir: /usr/src/admin
+    tty: true
+    command: bash -c "npm install -g yarn && yarn install && yarn start"
+    ports:
+      - 5001:4000
+    depends_on:
+      - 'api'
+  mongo:
+    container_name: mongo
+    image: mongo:4.2.5 
+    restart: always
+    ports:
+      - 27016:27017
+    volumes:
+      - ./mongo:/data/db

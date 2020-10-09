@@ -1,0 +1,33 @@
+{
+  "name": "TopicCategory",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "Search": true,
+    "SearchByAgeSex": true
+  },
+  "properties": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "fromAge": {
+      "type": "number",
+      "default": 0
+    },
+    "toAge": {
+      "type": "number",
+      "default": 110
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

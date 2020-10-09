@@ -1,0 +1,67 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "react-admin",
+    "public": false
+  },
+  "AccessToken": {
+    "dataSource": "react-admin",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "react-admin",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "react-admin",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "db",
+    "public": false
+  },
+  "AdminUser": {
+    "dataSource": "react-admin",
+    "public": true
+  },
+  "Topic": {
+    "dataSource": "react-admin",
+    "public": true
+  },
+  "Question": {
+    "dataSource": "react-admin",
+    "public": true
+  },
+  "TopicCategory": {
+    "dataSource": "react-admin",
+    "public": true
+  },
+  "Advice": {
+    "dataSource": "react-admin",
+    "public": true
+  },
+  "AgeCategory": {
+    "dataSource": "react-admin",
+    "public": true
+  },
+  "Page": {
+    "dataSource": "react-admin",
+    "public": true
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "AgeCategory",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "fromAge": {
+      "type": "number"
+    },
+    "toAge": {
+      "type": "number",
+      "required": true
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "topics": {
+      "type": "hasMany",
+      "model": "Topic",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

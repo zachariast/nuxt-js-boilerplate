@@ -1,0 +1,10 @@
+{
+  "db": {
+    "host": "mongo",
+    "port": 27017,
+    "url": "",
+    "database": "react-admin",
+    "name": "react-admin",
+    "connector": "mongodb"
+  }
+}

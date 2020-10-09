@@ -1,0 +1,52 @@
+{
+  "name": "Topic",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "Search": true,
+    "SearchByAgeSex": true
+  },
+  "properties": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "sex": {
+      "type": "string",
+      "default": "B"
+    },
+    "fromAge": {
+      "type": "number",
+      "default": 0
+    },
+    "toAge": {
+      "type": "number",
+      "default": 110
+    }
+  },
+  "validations": [],
+  "relations": {
+    "questions": {
+      "type": "hasMany",
+      "model": "Question",
+      "foreignKey": ""
+    },
+    "questionsManyToMany": {
+      "type": "hasAndBelongsToMany",
+      "model": "Question",
+      "foreignKey": ""
+    },
+    "topicCategories": {
+      "type": "referencesMany",
+      "model": "TopicCategory"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
