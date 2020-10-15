@@ -1,14 +1,25 @@
-version: '3.7'
+version: "3.7"
 services:
   front:
     container_name: front
-    build: ./front
-    restart: always
+    build:
+      context: ./front
+      dockerfile: Dockerfile
     environment:
       - HOST=0.0.0.0
     ports:
-      - 3000:3000
-
+      - 5002:3000
+    depends_on:
+      - "api"
+  api:
+    container_name: api
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - 5000:3000
+    depends_on:
+      - "mongo"
   nginx:
     container_name: nginx
     image: nginx:1.19
@@ -18,3 +29,11 @@ services:
       - ./nginx:/etc/nginx/conf.d
     depends_on:
       - front
+  mongo:
+    image: mongo:4.2.5 
+    restart: always
+    volumes:
+      - ./mongo:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
